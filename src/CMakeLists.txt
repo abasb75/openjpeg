@@ -18,6 +18,8 @@
       PROPERTIES 
       LINK_FLAGS "\
         --bind \
+        --allowJs \
+        --emit-tsd interface.d.ts \
         -s DISABLE_EXCEPTION_CATCHING=1 \
         -s ASSERTIONS=0 \
         -s NO_EXIT_RUNTIME=1 \

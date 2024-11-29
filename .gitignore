@@ -3,3 +3,5 @@ build-native/*
 test/fixtures/MG1.JLS
 test/fixtures/artificial*
 OpenJPH
+
+node_modules/

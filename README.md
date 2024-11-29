@@ -12,42 +12,47 @@ Try it in your browser [here](https://chafey.github.io/openjpegjs/test/browser/i
 
 This project uses git submodules to pull in OpenJPEG.  If developing, initialize the git submodules first:
 
-```
-> git submodule update --init --recursive
+```bash
+git submodule update --init --recursive
 ```
 
 This project uses Docker to provide a consistent developer environment.
 
 Create docker container 'openjpegjsbuild'
 
-```
-> scripts/docker-build.sh
+```bash
+scripts/docker-build.sh
 ```
 
 Create shell inside openjpegjsbuild container:
 
-```
-> scripts/docker-sh.sh
+```bash
+scripts/docker-sh.sh
 ```
 
 Install node 16 (inside docker shell):
+```bash
+nvm install 16
 ```
-> nvm install 16
+
+Install typescript (inside docker shell):
+```bash
+npm i typescript -g
 ```
 
 To build WASM (inside docker shell):
-```
-> scripts/wasm-build.sh
+```bash
+scripts/wasm-build.sh
 ```
 
 To build native C/C++ version (inside docker shell):
-```
-> scripts/native-build.sh
+```bash
+scripts/native-build.sh
 ```
 
 Run performance test (inside docker shell):
-```
-> scripts/performance.sh
+```bash
+scripts/performance.sh
 ```
 
 
