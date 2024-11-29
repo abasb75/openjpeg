@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { FrameInfo } from "./types";
 
 export function renderToCanvas(frameInfo:FrameInfo,decodedBuffer:ArrayBufferLike,canvas:HTMLCanvasElement,visualizeDeltas?:boolean){
