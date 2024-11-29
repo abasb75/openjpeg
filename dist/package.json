@@ -1,6 +1,6 @@
 {
     "name": "@abasb75/openjpeg",
-    "version": "2.5.2.test",
+    "version": "2.5.2-test",
     "description": "Openjpeg for browsers",
     "main": "openjpegjs.js",
     "types": "interface.d.ts",
