@@ -1,11 +1,17 @@
 
+
+let openjpegjs;
+
 async function decode(imageBuffer,options={}){
 
     const iterations = options.iterations || 1;
     const decodeLevel = options.decodeLevel || 0;
     const decodeLayer = options.decodeLayer || 0;
 
-    const openjpegjs = await OpenJPEGWASM();
+    if(!openjpegjs){
+      openjpegjs = await OpenJPEGWASM();
+    }
+
     const decoder = new openjpegjs.J2KDecoder();
     const buffer = new Uint8Array(imageBuffer);
 

@@ -1,7 +1,7 @@
-import OpenJPEGWASM from "./openjpegjs"
+import OpenJPEGWASM from "./index"
 import { DecodeOptions, DecodedOpenJPEG } from "./types";
-let openjpegjs;
 
+let openjpegjs:any;
 
 async function decode(imageBuffer:ArrayBuffer,options:DecodeOptions={}):Promise<DecodedOpenJPEG>{
 

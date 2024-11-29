@@ -1,13 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderToCanvas = renderToCanvas;
-function renderToCanvas(frameInfo, decodedBuffer, canvas, visualizeDeltas) {
-    var pixelData = getPixelData(frameInfo, new Uint8Array(decodedBuffer));
+export function renderToCanvas(frameInfo, decodedBuffer, canvas, visualizeDeltas) {
+    const pixelData = getPixelData(frameInfo, new Uint8Array(decodedBuffer));
     var ctx = canvas.getContext("2d");
     canvas.width = frameInfo.width;
     canvas.height = frameInfo.height;
     var myImageData = ctx === null || ctx === void 0 ? void 0 : ctx.createImageData(frameInfo.width, frameInfo.height);
-    var imageData;
+    let imageData;
     if (!myImageData) {
         return;
     }
@@ -25,10 +22,10 @@ function renderToCanvas(frameInfo, decodedBuffer, canvas, visualizeDeltas) {
     ctx === null || ctx === void 0 ? void 0 : ctx.putImageData(imageData, 0, 0);
 }
 function getMinMax(frameInfo, pixelData) {
-    var numPixels = frameInfo.width * frameInfo.height * frameInfo.componentCount;
-    var min = pixelData[0];
-    var max = pixelData[0];
-    for (var i = 0; i < numPixels; i++) {
+    const numPixels = frameInfo.width * frameInfo.height * frameInfo.componentCount;
+    let min = pixelData[0];
+    let max = pixelData[0];
+    for (let i = 0; i < numPixels; i++) {
         if (pixelData[i] < min) {
             min = pixelData[i];
         }
@@ -36,7 +33,7 @@ function getMinMax(frameInfo, pixelData) {
             max = pixelData[i];
         }
     }
-    return { min: min, max: max };
+    return { min, max };
 }
 function getPixelData(frameInfo, decodedBuffer) {
     if (frameInfo.bitsPerSample > 8) {
@@ -52,14 +49,14 @@ function getPixelData(frameInfo, decodedBuffer) {
     }
 }
 function colorToCanvas(frameInfo, pixelData, imageData) {
-    var outOffset = 0;
-    var bytesPerSample = (frameInfo.bitsPerSample <= 8) ? 1 : 2;
-    var planeSize = frameInfo.width * frameInfo.height * bytesPerSample;
-    var shift = 0;
+    let outOffset = 0;
+    const bytesPerSample = (frameInfo.bitsPerSample <= 8) ? 1 : 2;
+    let planeSize = frameInfo.width * frameInfo.height * bytesPerSample;
+    let shift = 0;
     if (frameInfo.bitsPerSample > 8) {
         shift = 8;
     }
-    var inOffset = 0;
+    let inOffset = 0;
     for (var y = 0; y < frameInfo.height; y++) {
         for (var x = 0; x < frameInfo.width; x++) {
             imageData.data[outOffset++] = pixelData[inOffset++] >> shift;
@@ -74,19 +71,19 @@ function grayToCanvas(frameInfo, pixelData, imageData) {
     var outOffset = 0;
     var planeSize = frameInfo.width * frameInfo.height;
     var inOffset = 0;
-    var minMax = getMinMax(frameInfo, pixelData);
-    var dynamicRange = minMax.max - minMax.min;
-    var bitsOfData = 1;
+    const minMax = getMinMax(frameInfo, pixelData);
+    let dynamicRange = minMax.max - minMax.min;
+    let bitsOfData = 1;
     while (dynamicRange > 1) {
         dynamicRange = dynamicRange >> 1;
         bitsOfData++;
     }
-    var bitShift = bitsOfData - 8;
-    var offset = -minMax.min;
+    let bitShift = bitsOfData - 8;
+    const offset = -minMax.min;
     for (var y = 0; y < frameInfo.height; y++) {
         for (var x = 0; x < frameInfo.width; x++) {
             if (frameInfo.bitsPerSample <= 8) {
-                var value = pixelData[inOffset++];
+                const value = pixelData[inOffset++];
                 imageData.data[outOffset] = value;
                 imageData.data[outOffset + 1] = value;
                 imageData.data[outOffset + 2] = value;
@@ -98,8 +95,8 @@ function grayToCanvas(frameInfo, pixelData, imageData) {
                 // Do a simple transformation to display 16 bit data:
                 //  * Offset the pixels so the smallest value is 0
                 //  * Shift the pixels to display the most significant 8 bits
-                var fullPixel = pixelData[inOffset++] + offset;
-                var value = (fullPixel >> bitShift);
+                const fullPixel = pixelData[inOffset++] + offset;
+                let value = (fullPixel >> bitShift);
                 imageData.data[outOffset] = value;
                 imageData.data[outOffset + 1] = value;
                 imageData.data[outOffset + 2] = value;
@@ -111,23 +108,23 @@ function grayToCanvas(frameInfo, pixelData, imageData) {
     return imageData;
 }
 function deltasToCanvas(frameInfo, pixelData, imageData, decodedBuffer) {
-    var deltas = new Int32Array(frameInfo.height * frameInfo.width);
-    var uif = getPixelData(frameInfo, decodedBuffer);
-    var inOffset = 0;
-    var outOffset = 0;
+    const deltas = new Int32Array(frameInfo.height * frameInfo.width);
+    const uif = getPixelData(frameInfo, decodedBuffer);
+    let inOffset = 0;
+    let outOffset = 0;
     for (var y = 0; y < frameInfo.height; y++) {
         for (var x = 0; x < frameInfo.width; x++) {
-            var unc = uif[inOffset];
-            var comp = pixelData[inOffset];
+            const unc = uif[inOffset];
+            const comp = pixelData[inOffset];
             deltas[inOffset++] = Math.abs(comp - unc);
         }
     }
-    var deltaMinMax = getMinMax(frameInfo, deltas);
+    const deltaMinMax = getMinMax(frameInfo, deltas);
     inOffset = 0;
     for (var y = 0; y < frameInfo.height; y++) {
         for (var x = 0; x < frameInfo.width; x++) {
             if (decodedBuffer) {
-                var delta = deltas[inOffset];
+                const delta = deltas[inOffset];
                 inOffset++;
                 imageData.data[outOffset] = delta;
                 imageData.data[outOffset + 1] = delta;
