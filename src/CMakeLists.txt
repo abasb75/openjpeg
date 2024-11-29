@@ -11,7 +11,7 @@
   endif()
   
   # add include path to openjpeg
-  include_directories("../extern/openjpeg/src/lib/openjp2" "../build/extern/openjpeg/src/lib/openjp2")
+  include_directories("../openjpeg/src/lib/openjp2" "../build/openjpeg/src/lib/openjp2")
   
   set_target_properties(
     openjpegjs 
@@ -29,5 +29,6 @@
         -s EXPORTED_RUNTIME_METHODS=[ccall] \
         -s MODULARIZE=1 \
         -s EXPORT_NAME=OpenJPEGWASM \
+        -s SINGLE_FILE=1 \
     ")
   

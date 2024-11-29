@@ -11,4 +11,4 @@ target_compile_features(cpptest PUBLIC cxx_std_14)
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 # add include path to openjpeg
-include_directories("../../extern/openjpeg/src/lib/openjp2", "../../build/extern/openjpeg/src/lib/openjp2")
+include_directories("../../openjpeg/src/lib/openjp2", "../../build/openjpeg/src/lib/openjp2")

@@ -6,6 +6,4 @@ mkdir -p build
 #(cd build && emcmake cmake -DCMAKE_C_FLAGS="-msimd128"  ..) &&
 (cd build && emcmake cmake -DCMAKE_C_FLAGS="" ..) &&
 (cd build && emmake make VERBOSE=1 -j) &&
-cp ./build/extern/openjpeg/bin/openjpegjs.js ./dist &&
-cp ./build/extern/openjpeg/bin/openjpegjs.wasm ./dist &&
-(cd test/node; npm run test)
+cp ./build/openjpeg/bin/openjpegjs.js ./dist
