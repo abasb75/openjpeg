@@ -57,28 +57,5 @@ scripts/performance.sh
 
 
 ## TODOS
+
 1) Fix openjpeg cmake issue that overrides output directory to be wrong
-
-## Using generated Javascript File:
-
-1. install From `npm`:
-
-```bash
-npm i --save @abasb75/openjpeg
-```
-
-2. import `@abasb75/openjpeg`:
-
-```js
-import OpenJPEG from '@abasb75/openjpeg'
-
-...
-let decoder,encoder;
-OpenJPEGWASM().then(function(openjpegjs) {
-    decoder = new openjpegjs.J2KDecoder();
-    encoder = new openjpegjs.J2KEncoder();
-});
-...
-
-
-3. Decode `JPEG2000 File`:

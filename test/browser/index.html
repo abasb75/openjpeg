@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">   
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="../../dist/openjpegjs.js"></script>
+    <script type="text/javascript" src="dist/openjpegjs.js"></script>
 </head>
 <body>
 <div class="container">
@@ -18,26 +18,26 @@ SPDX-License-Identifier: MIT
       </p>
       <div class="row">
         <select id="imageSelector">
-          <option value="../../test/fixtures/j2k/CT1.j2k" selected>CT1</option>
-          <option value="../../test/fixtures/j2k/CT2.j2k">CT2</option>
-          <option value="../../test/fixtures/j2k/MG1.j2k">MG1</option>
-          <option value="../../test/fixtures/j2k/MR1.j2k">MR1</option>
-          <option value="../../test/fixtures/j2k/MR2.j2k">MR2</option>
-          <option value="../../test/fixtures/j2k/MR3.j2k">MR3</option>
-          <option value="../../test/fixtures/j2k/MR4.j2k">MR4</option>
-          <option value="../../test/fixtures/j2k/NM1.j2k">NM1</option>
-          <option value="../../test/fixtures/j2k/RG1.j2k">RG1</option>
-          <option value="../../test/fixtures/j2k/RG2.j2k">RG2</option>
-          <option value="../../test/fixtures/j2k/RG3.j2k">RG3</option>
-          <option value="../../test/fixtures/j2k/SC1.j2k">SC1</option>
-          <option value="../../test/fixtures/j2k/US1.j2k">US1</option>
-          <option value="../../test/fixtures/j2k/VL1.j2k">VL1</option>
-          <option value="../../test/fixtures/j2k/VL2.j2k">VL2</option>
-          <option value="../../test/fixtures/j2k/VL3.j2k">VL3</option>
-          <option value="../../test/fixtures/j2k/VL4.j2k">VL4</option>
-          <option value="../../test/fixtures/j2k/VL5.j2k">VL5</option>
-          <option value="../../test/fixtures/j2k/VL6.j2k">VL6</option>
-          <option value="../../test/fixtures/j2k/XA1.j2k">XA1</option>
+          <option value="fixtures/j2k/CT1.j2k" selected>CT1</option>
+          <option value="fixtures/j2k/CT2.j2k">CT2</option>
+          <option value="fixtures/j2k/MG1.j2k">MG1</option>
+          <option value="fixtures/j2k/MR1.j2k">MR1</option>
+          <option value="fixtures/j2k/MR2.j2k">MR2</option>
+          <option value="fixtures/j2k/MR3.j2k">MR3</option>
+          <option value="fixtures/j2k/MR4.j2k">MR4</option>
+          <option value="fixtures/j2k/NM1.j2k">NM1</option>
+          <option value="fixtures/j2k/RG1.j2k">RG1</option>
+          <option value="fixtures/j2k/RG2.j2k">RG2</option>
+          <option value="fixtures/j2k/RG3.j2k">RG3</option>
+          <option value="fixtures/j2k/SC1.j2k">SC1</option>
+          <option value="fixtures/j2k/US1.j2k">US1</option>
+          <option value="fixtures/j2k/VL1.j2k">VL1</option>
+          <option value="fixtures/j2k/VL2.j2k">VL2</option>
+          <option value="fixtures/j2k/VL3.j2k">VL3</option>
+          <option value="fixtures/j2k/VL4.j2k">VL4</option>
+          <option value="fixtures/j2k/VL5.j2k">VL5</option>
+          <option value="fixtures/j2k/VL6.j2k">VL6</option>
+          <option value="fixtures/j2k/XA1.j2k">XA1</option>
         </select>
         <button id="benchmark">Benchmark</button>
         <span>Status:</span><span id="status"></span>
@@ -523,12 +523,12 @@ SPDX-License-Identifier: MIT
 
   function main() {
 
-    //init('../../test/fixtures/j2k/CT1-0decomp.j2k');
-    init('../../test/fixtures/j2k/CT1.j2k');
-    //init('../../test/fixtures/j2k/US1.j2k');
-    //init('../../test/fixtures/j2k/XA1.j2k');
-    //init('../../test/fixtures/j2c/MG1.j2c');
-    //init('../../test/fixtures/j2c/MR2.j2c');
+    //init('fixtures/j2k/CT1-0decomp.j2k');
+    init('fixtures/j2k/CT1.j2k');
+    //init('fixtures/j2k/US1.j2k');
+    //init('fixtures/j2k/XA1.j2k');
+    //init('fixtures/j2c/MG1.j2c');
+    //init('fixtures/j2c/MR2.j2c');
     //init('../../extern/OpenJPH/subprojects/js/html/test.j2c');
 
     $('#imageSelector').change(function(e) {
