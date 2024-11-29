@@ -1,61 +1,26 @@
-# openjpegpjs
-
+# @abasb75/openjpegp
 JS/WebAssembly build of [OpenJPEG](https://github.com/uclouvain/openjpeg)
 
-NOTE - a forked version of OpenJPEG is currently used which has some changes to allow partial bitstream decoding
-
-## Try It Out!
-
-Try it in your browser [here](https://chafey.github.io/openjpegjs/test/browser/index.html)
-
-## Building
-
-This project uses git submodules to pull in OpenJPEG.  If developing, initialize the git submodules first:
+## Using generated Javascript File:
+1. install From `npm`:
 
 ```bash
-git submodule update --init --recursive
+npm i --save @abasb75/openjpeg
 ```
 
-This project uses Docker to provide a consistent developer environment.
+2. import `@abasb75/openjpeg`:
 
-Create docker container 'openjpegjsbuild'
+```js
+import OpenJPEG from '@abasb75/openjpeg'
 
-```bash
-scripts/docker-build.sh
+...
+let decoder,encoder;
+OpenJPEGWASM().then(function(openjpegjs) {
+    decoder = new openjpegjs.J2KDecoder();
+    encoder = new openjpegjs.J2KEncoder();
+});
+...
+
 ```
 
-Create shell inside openjpegjsbuild container:
-
-```bash
-scripts/docker-sh.sh
-```
-
-Install node 16 (inside docker shell):
-```bash
-nvm install 16
-```
-
-Install typescript (inside docker shell):
-```bash
-npm i typescript -g
-```
-
-To build WASM (inside docker shell):
-```bash
-scripts/wasm-build.sh
-```
-
-To build native C/C++ version (inside docker shell):
-```bash
-scripts/native-build.sh
-```
-
-Run performance test (inside docker shell):
-```bash
-scripts/performance.sh
-```
-
-
-## TODOS
-
-1) Fix openjpeg cmake issue that overrides output directory to be wrong
+For see example you can use <a href="https://github.com/abasb75/openjpeg/blob/master/test/browser/index.html">this link</a>
