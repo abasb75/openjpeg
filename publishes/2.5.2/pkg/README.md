@@ -23,4 +23,16 @@ OpenJPEGWASM().then(function(openjpegjs) {
 
 ```
 
+# Decode
+
+```javascript
+
+import {decode} from "@abasb75/openjpeg";
+
+const decoded = await decode(arrayBuffer); // ArrayBuffer
+console.log('decoded',decoded);
+
+
+```
+
 For see example you can use <a href="https://github.com/abasb75/openjpeg/blob/master/test/browser/index.html">this link</a>
