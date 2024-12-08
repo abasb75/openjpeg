@@ -39,4 +39,4 @@ For see example you can use <a href="https://github.com/abasb75/openjpeg/blob/ma
 
 ## only decoder versions:
 
-For see example you can use <a href="https://www.npmjs.com/package/@abasb75/openjpeg/v/2.5.2-decoder">2.5.2-decoder</a>
+<a href="https://www.npmjs.com/package/@abasb75/openjpeg/v/2.5.2-decoder">2.5.2-decoder</a>
