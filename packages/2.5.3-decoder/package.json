@@ -1,19 +1,16 @@
 {
-    "name": "@abasb75/openjpeg",
-    "version": "2.5.2-u1",
-    "description": "Openjpeg for browsers",
+    "name": "@abasb75/jpeg2000-decoder",
+    "version": "2.5.3",
+    "description": "OpenJpeg for JavaScript",
     "main": "index.js",
     "types": "interface.d.ts",
     "directories": {
       "test": "test"
     },
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
     "author": "",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/abasb75/openjpeg/raction.git"
+        "url": "https://github.com/abasb75/openjpeg"
     },
     "bugs": {
         "url": "https://github.com/abasb75/openjpeg/issues"

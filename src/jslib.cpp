@@ -27,8 +27,7 @@ EMSCRIPTEN_BINDINGS(FrameInfo) {
     .field("height", &FrameInfo::height)
     .field("bitsPerSample", &FrameInfo::bitsPerSample)
     .field("componentCount", &FrameInfo::componentCount)
-    .field("isSigned", &FrameInfo::isSigned)
-       ;
+    .field("isSigned", &FrameInfo::isSigned);
 }
 
 EMSCRIPTEN_BINDINGS(Point) {
